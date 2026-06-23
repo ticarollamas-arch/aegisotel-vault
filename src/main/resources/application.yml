@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: aegis-otel-vault
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:aegis_db}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
